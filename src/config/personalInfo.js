@@ -12,10 +12,10 @@ export const personalInfo = {
   
   // Contact Information
   contact: {
-    email: "john.developer@example.com",
-    phone: "+1 (555) 123-4567",
-    location: "New York, NY",
-    website: "https://johndeveloper.com"
+    email: "boharakaran533@gmail.com",
+    phone: "+9779844664401",
+    location: "Kathmandu, Nepal",
+    website: "https://kbohara.netlify.app"
   },
   
   // Social Media Links
