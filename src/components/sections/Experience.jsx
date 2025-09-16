@@ -83,7 +83,7 @@ const Experience = () => {
 
     return (
       <div className="circular-progress">
-        <svg className="progress-ring" width="120" height="120">
+        <svg className="progress-ring" width="120" height="120" viewBox="0 0 120 120">
           {/* Background circle */}
           <circle
             className="progress-ring-background"

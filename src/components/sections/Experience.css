@@ -63,7 +63,7 @@
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   position: relative;
   z-index: 2;
@@ -82,6 +82,8 @@
   transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
+  min-height: 280px;
+  justify-content: space-between;
 }
 
 .stat-item::before {
@@ -116,7 +118,10 @@
 /* Circular Progress */
 .stat-visual {
   position: relative;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .circular-progress {
@@ -124,6 +129,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 1rem;
 }
 
 .progress-ring {
@@ -139,34 +145,33 @@
   transition: stroke-dashoffset 2s ease-out;
 }
 
-/* Stat Content */
+/* Stat Content - Now positioned below the circle */
 .stat-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 .counter-value {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   font-weight: 800;
   color: var(--text-primary);
   line-height: 1;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
   text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
 }
 
 .stat-label {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-secondary);
   text-align: center;
-  line-height: 1.2;
-  max-width: 80px;
+  line-height: 1.3;
+  max-width: 120px;
 }
 
 /* Timeline */
@@ -311,6 +316,22 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .stat-item {
+    min-height: 260px;
+    padding: 1.5rem 1rem;
+  }
+
+  .counter-value {
+    font-size: 2rem;
+  }
+}
+
 @media (max-width: 768px) {
   .stats-container {
     padding: 2rem 1rem;
@@ -324,15 +345,31 @@
 
   .stat-item {
     padding: 1.5rem 1rem;
+    min-height: 240px;
   }
 
   .counter-value {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 
   .stat-label {
-    font-size: 0.8rem;
-    max-width: 70px;
+    font-size: 0.85rem;
+    max-width: 100px;
+  }
+
+  .circular-progress {
+    margin-bottom: 0.75rem;
+  }
+
+  .progress-ring {
+    width: 100px;
+    height: 100px;
+  }
+
+  .progress-ring circle {
+    r: 35;
+    cx: 50;
+    cy: 50;
   }
 
   .timeline {
@@ -355,10 +392,31 @@
 @media (max-width: 480px) {
   .stats-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .stat-item {
+    min-height: 220px;
+    padding: 1.25rem 0.75rem;
   }
 
   .counter-value {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+  }
+
+  .progress-ring {
+    width: 90px;
+    height: 90px;
+  }
+
+  .progress-ring circle {
+    r: 30;
+    cx: 45;
+    cy: 45;
   }
 
   .timeline-title {
@@ -367,5 +425,13 @@
 
   .timeline-content {
     padding: 1rem;
+  }
+
+  .circular-progress {
+    margin-bottom: 0.5rem;
+  }
+
+  .stats-container {
+    padding: 1.5rem 0.75rem;
   }
 }
