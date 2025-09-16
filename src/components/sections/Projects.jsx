@@ -9,7 +9,8 @@ import './Projects.css';
 const Projects = () => {
   const [ref, inView] = useInView({
     threshold: 0.1,
-    triggerOnce: true
+    triggerOnce: false,
+    rootMargin: '-50px 0px'
   });
 
   const [activeFilter, setActiveFilter] = useState('All');

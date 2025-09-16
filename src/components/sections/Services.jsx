@@ -7,8 +7,9 @@ import './Services.css';
 
 const Services = () => {
   const [ref, inView] = useInView({
-    threshold: 0.2,
-    triggerOnce: true
+    threshold: 0.1,
+    triggerOnce: false,
+    rootMargin: '-50px 0px'
   });
 
   const iconMap = {

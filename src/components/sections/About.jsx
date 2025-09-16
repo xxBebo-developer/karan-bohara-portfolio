@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FaCode, FaServer, FaDatabase, FaPalette, FaTools, FaRocket } from 'react-icons/fa';
@@ -6,10 +6,23 @@ import { personalInfo } from '../../config/personalInfo';
 import './About.css';
 
 const About = () => {
+  const [forceVisible, setForceVisible] = useState(false);
   const [ref, inView] = useInView({
-    threshold: 0.3,
-    triggerOnce: true
+    threshold: 0.1,
+    triggerOnce: false,
+    rootMargin: '-50px 0px'
   });
+
+  // Fallback mechanism - show content after a delay if intersection observer fails
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setForceVisible(true);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const isVisible = inView || forceVisible;
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -64,7 +77,7 @@ const About = () => {
           className="about-content"
           variants={containerVariants}
           initial="hidden"
-          animate={inView ? "visible" : "hidden"}
+          animate={isVisible ? "visible" : "hidden"}
         >
           {/* Section Header */}
           <motion.div className="section-header" variants={itemVariants}>
@@ -134,7 +147,7 @@ const About = () => {
                           key={skill.name}
                           className="skill-item"
                           initial={{ opacity: 0, scale: 0.8 }}
-                          animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                          animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                           transition={{ 
                             duration: 0.5, 
                             delay: index * 0.1 + 0.5 
@@ -153,7 +166,7 @@ const About = () => {
                               <motion.div
                                 className="skill-progress"
                                 initial={{ width: 0 }}
-                                animate={inView ? { width: `${skill.level}%` } : { width: 0 }}
+                                animate={isVisible ? { width: `${skill.level}%` } : { width: 0 }}
                                 transition={{ 
                                   duration: 1.5, 
                                   delay: index * 0.1 + 0.7,
