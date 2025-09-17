@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Portfolio from './pages/Portfolio';
+import ParticlesBackground from './components/common/ParticlesBackground';
 import './App.css';
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
 
   return (
     <div className="App">
+      <ParticlesBackground theme={theme} />
       <Portfolio theme={theme} toggleTheme={toggleTheme} />
     </div>
   );

@@ -1,0 +1,11 @@
+{
+    "version": "3.9.1",
+    "npmClient": "pnpm",
+    "conventionalCommits": true,
+    "command": {
+        "version": {
+            "message": "chore(release): published new version"
+        }
+    },
+    "$schema": "node_modules/lerna/schemas/lerna-schema.json"
+}

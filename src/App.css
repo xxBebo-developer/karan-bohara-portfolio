@@ -3,6 +3,12 @@
   position: relative;
 }
 
+/* Ensure main content appears above particles */
+.App > :not(#tsparticles) {
+  position: relative;
+  z-index: 1;
+}
+
 /* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
@@ -99,4 +105,64 @@ section {
 .hover-lift:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-large);
+}
+
+/* Mobile-specific responsive improvements */
+@media (max-width: 768px) {
+  .App {
+    overflow-x: hidden;
+  }
+  
+  /* Ensure proper spacing on mobile */
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Reduce hover effects on touch devices */
+  .hover-lift:hover {
+    transform: none;
+  }
+  
+  /* Touch-friendly interactions */
+  .hover-lift:active {
+    transform: scale(0.98);
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
+
+@media (max-width: 360px) {
+  section {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+/* Ensure particles don't cause overflow */
+#tsparticles {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0 !important;
+  pointer-events: auto !important;
+  overflow: hidden;
+}
+
+/* Ensure particles canvas is visible */
+#tsparticles canvas {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0 !important;
+  pointer-events: auto !important;
 }

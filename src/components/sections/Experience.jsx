@@ -77,32 +77,38 @@ const Experience = () => {
   };
 
   const CircularProgress = ({ percentage, color, inView }) => {
-    const circumference = 2 * Math.PI * 45; // radius = 45
+    const circumference = 2 * Math.PI * 35; // radius = 35 (more minimal)
     const strokeDasharray = circumference;
     const strokeDashoffset = inView ? circumference - (percentage / 100) * circumference : circumference;
 
     return (
       <div className="circular-progress">
-        <svg className="progress-ring" width="120" height="120" viewBox="0 0 120 120">
+        <svg 
+          className="progress-ring" 
+          width="100" 
+          height="100" 
+          viewBox="0 0 100 100"
+          style={{ width: '100%', height: 'auto', maxWidth: '100px' }}
+        >
           {/* Background circle */}
           <circle
             className="progress-ring-background"
-            cx="60"
-            cy="60"
-            r="45"
+            cx="50"
+            cy="50"
+            r="35"
             fill="transparent"
             stroke="var(--border-color)"
-            strokeWidth="8"
+            strokeWidth="4"
           />
           {/* Progress circle */}
           <motion.circle
             className="progress-ring-progress"
-            cx="60"
-            cy="60"
-            r="45"
+            cx="50"
+            cy="50"
+            r="35"
             fill="transparent"
             stroke={color}
-            strokeWidth="8"
+            strokeWidth="4"
             strokeLinecap="round"
             strokeDasharray={strokeDasharray}
             strokeDashoffset={strokeDashoffset}
@@ -113,8 +119,8 @@ const Experience = () => {
             transition={{ duration: 2, ease: "easeOut", delay: 0.5 }}
             style={{
               transform: 'rotate(-90deg)',
-              transformOrigin: '60px 60px',
-              filter: `drop-shadow(0 0 8px ${color}40)`,
+              transformOrigin: '50px 50px',
+              filter: `drop-shadow(0 0 6px ${color}25)`,
             }}
           />
         </svg>
@@ -170,10 +176,10 @@ const Experience = () => {
                   key={stat.label}
                   className="stat-item"
                   variants={itemVariants}
-                  whileHover={{ 
+                  whileHover={window.innerWidth > 768 ? { 
                     scale: 1.05,
                     transition: { duration: 0.2 }
-                  }}
+                  } : {}}
                 >
                   <div className="stat-visual">
                     <CircularProgress 
@@ -202,7 +208,7 @@ const Experience = () => {
               <motion.div 
                 className="timeline-item"
                 variants={itemVariants}
-                whileHover={{ x: 10 }}
+                whileHover={window.innerWidth > 768 ? { x: 10 } : {}}
               >
                 <div className="timeline-marker"></div>
                 <div className="timeline-content">
@@ -219,7 +225,7 @@ const Experience = () => {
               <motion.div 
                 className="timeline-item"
                 variants={itemVariants}
-                whileHover={{ x: 10 }}
+                whileHover={window.innerWidth > 768 ? { x: 10 } : {}}
               >
                 <div className="timeline-marker"></div>
                 <div className="timeline-content">
@@ -236,7 +242,7 @@ const Experience = () => {
               <motion.div 
                 className="timeline-item"
                 variants={itemVariants}
-                whileHover={{ x: 10 }}
+                whileHover={window.innerWidth > 768 ? { x: 10 } : {}}
               >
                 <div className="timeline-marker"></div>
                 <div className="timeline-content">

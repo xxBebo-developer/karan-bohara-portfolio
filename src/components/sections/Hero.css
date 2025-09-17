@@ -380,21 +380,133 @@
 }
 
 @media (max-width: 480px) {
+  .hero-content {
+    padding: 80px 0 30px;
+    gap: 2rem;
+  }
+
+  .hero-greeting {
+    font-size: 1rem;
+  }
+
   .hero-name {
     font-size: 2.2rem;
+    line-height: 1.2;
   }
 
   .hero-title {
     font-size: 1.5rem;
+    min-height: 45px;
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+    max-width: 100%;
   }
 
   .hero-buttons {
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
   }
 
   .hero-buttons button {
     width: 200px;
     justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .social-link {
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+  }
+
+  .profile-wrapper {
+    width: 220px;
+    height: 220px;
+  }
+
+  .profile-image {
+    width: 180px;
+    height: 180px;
+  }
+
+  .profile-ring {
+    width: 200px;
+    height: 200px;
+  }
+
+  .profile-ring-2 {
+    width: 240px;
+    height: 240px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+  .hero {
+    min-height: 90vh;
+  }
+
+  .hero-content {
+    padding: 60px 0 20px;
+    gap: 1.5rem;
+  }
+
+  .hero-name {
+    font-size: 1.8rem;
+  }
+
+  .hero-title {
+    font-size: 1.3rem;
+    min-height: 40px;
+  }
+
+  .hero-tagline {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .hero-buttons button {
+    width: 180px;
+    padding: 0.65rem 1.25rem;
+    font-size: 0.85rem;
+  }
+
+  .social-link {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+
+  .profile-wrapper {
+    width: 180px;
+    height: 180px;
+  }
+
+  .profile-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .profile-ring {
+    width: 160px;
+    height: 160px;
+  }
+
+  .profile-ring-2 {
+    width: 200px;
+    height: 200px;
+  }
+
+  .scroll-indicator {
+    bottom: 20px;
+    font-size: 0.8rem;
+  }
+
+  .scroll-line {
+    height: 30px;
   }
 }
